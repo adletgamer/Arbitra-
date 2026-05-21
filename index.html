@@ -65,9 +65,7 @@
       </h1>
 
       <p class="hero__subtitle">
-        Los fondos de tu cohorte no se liberan por confianza subjetiva, sino por
-        <strong style="color: var(--text-primary);">evidencia verificable</strong>,
-        validación de IA y reglas auditables en Arbitrum.
+        Fondos custodiados en Smart Contracts autoejecutables en Arbitrum. Liberación condicionada a validación de IA y evidencia auditable.
       </p>
 
       <div class="hero__actions">
@@ -130,7 +128,7 @@
         <div class="bento-card bento-card--problem">
           <div class="bento-card__badge badge--error">Proceso Tradicional</div>
           <h3 class="bento-card__title">Opacidad & Burocracia en PDF</h3>
-          <p class="bento-card__desc">Los fondos se gestionan mediante contratos en PDF, firmas manuales lentas y desembolsos basados en confianza subjetiva.</p>
+          <p class="bento-card__desc">Fondos paralizados en firmas manuales, contratos en papel y desembolsos basados en valoraciones subjetivas.</p>
           <div class="bento-card__visual">
             <div class="pdf-mockup">
               <span class="pdf-mockup__icon">📄</span>
@@ -138,7 +136,7 @@
                 <span class="pdf-mockup__title">Grant_Startup.pdf</span>
                 <span class="pdf-mockup__status text-error">Firma pendiente</span>
               </div>
-              <div class="pdf-mockup__delay">Retraso Promedio: 45 días</div>
+              <div class="pdf-mockup__delay text-error font-mono">Retraso: 45 días</div>
             </div>
           </div>
         </div>
@@ -147,7 +145,7 @@
         <div class="bento-card bento-card--solution bento-card--highlight">
           <div class="bento-card__badge badge--cyan">Infraestructura Arbitra</div>
           <h3 class="bento-card__title">Milestone Escrow on-chain</h3>
-          <p class="bento-card__desc">Fondos custodiados en Smart Contracts autoejecutables en Arbitrum. Liberación inmediata tras validación de hitos.</p>
+          <p class="bento-card__desc">Escrow autoejecutable en Arbitrum. Desembolsos inmediatos y automáticos contra validación de hitos técnicos.</p>
           <div class="bento-card__visual">
             <div class="escrow-mockup">
               <span class="escrow-mockup__lock">🔓</span>
@@ -164,7 +162,7 @@
         <div class="bento-card bento-card--problem">
           <div class="bento-card__badge badge--error">Evaluación Manual</div>
           <h3 class="bento-card__title">Auditorías Manuales y Lentitud</h3>
-          <p class="bento-card__desc">Comités trimestrales propensos a retrasos, sin visibilidad técnica del avance y dependientes de justificaciones subjetivas.</p>
+          <p class="bento-card__desc">Revisiones trimestrales tardías, sin auditoría de código en tiempo real y expuestas a sesgos.</p>
           <div class="bento-card__visual">
             <div class="manual-mockup">
               <div class="manual-mockup__icon-group">
@@ -183,7 +181,7 @@
         <div class="bento-card bento-card--solution bento-card--highlight">
           <div class="bento-card__badge badge--violet">Gobernanza Automatizada</div>
           <h3 class="bento-card__title">IA Explicable + Firmas Multisig</h3>
-          <p class="bento-card__desc">Agentes de IA auditan los entregables en Github de forma auditable, requiriendo firma multisig del comité para liberar el escrow.</p>
+          <p class="bento-card__desc">Agentes de IA auditan repositorios en tiempo real, respaldados por aprobación multisig multifirma.</p>
           <div class="bento-card__visual">
             <div class="ai-mockup">
               <div class="ai-mockup__badge text-violet">
@@ -192,6 +190,156 @@
               <div class="ai-mockup__multisig">
                 <span class="ai-mockup__signature text-success">✓ Mentor Signed</span>
                 <span class="ai-mockup__signature text-success">✓ Admin Signed</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ROLES & PERFILES TABS SECTION ========== -->
+  <section class="section roles-section" id="roles">
+    <div class="container">
+      <div class="reveal" style="text-align: center; margin-bottom: var(--space-xl);">
+        <span class="section__label">
+          <span class="section__label-dot"></span>
+          Perfiles de Acceso
+        </span>
+        <h2 class="section__title">Tres roles. Una sola fuente de verdad.</h2>
+        <p class="section__subtitle" style="margin: 0 auto;">Optimización de flujos de trabajo B2B según tu nivel de acceso institucional.</p>
+      </div>
+
+      <!-- Tabs Header -->
+      <div class="tabs-header reveal">
+        <button class="tab-btn active" data-tab="admin">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield"><path d="M20 13c0 5-3.5 7.5-7.66 9.7a1 1 0 0 1-.68 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.3a1 1 0 0 1 1.52 0C14.5 3.8 17 5 19 5a1 1 0 0 1 1 1Z"/></svg>
+          Administrador
+        </button>
+        <button class="tab-btn" data-tab="startup">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-rocket"><path d="M4.5 16.5c-1.5 1.26-2 3.12-2 4.79 1.67 0 3.53-.5 4.79-2M15 9l-6 6M9 9l3 3M19 5c-1.5 1.5-3.5 2-5 2s-3.5-.5-5-2-2-3.5-2-5c0-1.5.5-3.5 2-5s3.5-.5 5-.5c1.5 0 3.5.5 5 2a9.7 9.7 0 0 1 0 13.5Z"/></svg>
+          Startup
+        </button>
+        <button class="tab-btn" data-tab="mentor">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          Mentor
+        </button>
+      </div>
+
+      <!-- Tabs Content -->
+      <div class="tabs-content-container reveal">
+        <!-- Admin Tab Content -->
+        <div class="tab-content active" id="tab-content-admin">
+          <div class="role-card">
+            <div class="role-card__left">
+              <h3 class="role-card__title">Gestión de Fondos & Cumplimiento</h3>
+              <ul class="role-bullets">
+                <li>
+                  <span class="bullet-icon">⚖️</span>
+                  <div>
+                    <strong class="text-cyan">Capital Programable:</strong> Creación de grants y custodia on-chain mediante reglas autoejecutables.
+                  </div>
+                </li>
+                <li>
+                  <span class="bullet-icon">📊</span>
+                  <div>
+                    <strong class="text-cyan">Monitoreo Técnico:</strong> Scoring automatizado de riesgo de IA en tiempo real por cada cohorte.
+                  </div>
+                </li>
+                <li>
+                  <span class="bullet-icon">🔐</span>
+                  <div>
+                    <strong class="text-cyan">Gobernanza Multisig:</strong> Control total y liberación de capital mediante firmas conjuntas.
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="role-card__right">
+              <div class="role-preview">
+                <div class="preview-badge text-cyan font-mono">Admin View</div>
+                <div class="preview-screen">
+                  <div class="preview-line"><span>Programas:</span> <span class="mono text-success">3 Activos</span></div>
+                  <div class="preview-line"><span>ARB Bloqueados:</span> <span class="mono text-cyan">150,000 ARB</span></div>
+                  <div class="preview-line"><span>Ratio Aprobación:</span> <span class="mono text-violet">4.2 horas</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Startup Tab Content -->
+        <div class="tab-content" id="tab-content-startup">
+          <div class="role-card">
+            <div class="role-card__left">
+              <h3 class="role-card__title">Desarrollo Eficiente & Transparencia</h3>
+              <ul class="role-bullets">
+                <li>
+                  <span class="bullet-icon">🚀</span>
+                  <div>
+                    <strong class="text-violet">Carga de Evidencias:</strong> Vinculación directa de entregables vía GitHub, Figma o Drive.
+                  </div>
+                </li>
+                <li>
+                  <span class="bullet-icon">⏱️</span>
+                  <div>
+                    <strong class="text-violet">Soft Finality L2:</strong> Verificación técnica instantánea sobre la red Arbitrum Orbit.
+                  </div>
+                </li>
+                <li>
+                  <span class="bullet-icon">💸</span>
+                  <div>
+                    <strong class="text-violet">Liquidación Directa:</strong> Retiro inmediato de fondos tras cumplir las reglas del Smart Contract.
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="role-card__right">
+              <div class="role-preview">
+                <div class="preview-badge text-violet font-mono">Startup View</div>
+                <div class="preview-screen">
+                  <div class="preview-line"><span>NexaFinance:</span> <span class="mono text-success">Hito 3</span></div>
+                  <div class="preview-line"><span>Fondo Escrow:</span> <span class="mono text-cyan">7,500 ARB</span></div>
+                  <div class="preview-line"><span>Validación:</span> <span class="mono text-warning">ai_review</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mentor Tab Content -->
+        <div class="tab-content" id="tab-content-mentor">
+          <div class="role-card">
+            <div class="role-card__left">
+              <h3 class="role-card__title">Auditoría Guiada & Mentoría Directa</h3>
+              <ul class="role-bullets">
+                <li>
+                  <span class="bullet-icon">🔍</span>
+                  <div>
+                    <strong class="text-success">Auditoría con IA:</strong> Evaluación de código y Figma con reportes de riesgo generados automáticamente.
+                  </div>
+                </li>
+                <li>
+                  <span class="bullet-icon">✍️</span>
+                  <div>
+                    <strong class="text-success">Firmas Multisig:</strong> Autorización fácil de hitos con transacciones gasless en un solo clic.
+                  </div>
+                </li>
+                <li>
+                  <span class="bullet-icon">📈</span>
+                  <div>
+                    <strong class="text-success">Métricas de Tracción:</strong> Acceso transparente y sin fricciones al progreso real de tus startups.
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="role-card__right">
+              <div class="role-preview">
+                <div class="preview-badge text-success font-mono">Mentor View</div>
+                <div class="preview-screen">
+                  <div class="preview-line"><span>GitHub commits:</span> <span class="mono text-success">20 / 20</span></div>
+                  <div class="preview-line"><span>Test Coverage:</span> <span class="mono text-cyan">94%</span></div>
+                  <div class="preview-line"><span>Firma Mentor:</span> <span class="mono text-success">Firmado</span></div>
+                </div>
               </div>
             </div>
           </div>
@@ -210,7 +358,7 @@
           Panel de Control
         </span>
         <h2 class="section__title">Dashboard Institucional</h2>
-        <p class="section__subtitle">Vista general del estado financiero y operativo de tu cohorte de incubación.</p>
+        <p class="section__subtitle">Métricas financieras, riesgos operativos y tracking on-chain en tiempo real.</p>
       </div>
 
       <!-- Stat Cards Row -->
@@ -392,62 +540,41 @@
           Motor de Hitos
         </span>
         <h2 class="section__title">Smart Milestone Contract Preview</h2>
-        <p class="section__subtitle" style="margin: 0 auto;">Flujo visual del ciclo de vida de un hito para la startup ficticia <strong style="color: var(--text-primary);">NexaFinance</strong>.</p>
+        <p class="section__subtitle" style="margin: 0 auto;">Visualiza el ciclo de vida de tu capital: del depósito on-chain a la liquidación auditada.</p>
       </div>
 
       <!-- Timeline -->
       <div class="reveal">
         <div class="milestone-timeline">
           <div class="milestone-timeline__line">
-            <div class="milestone-timeline__progress milestone-timeline__progress--gradient" data-width="58%"></div>
+            <div class="milestone-timeline__progress milestone-timeline__progress--gradient" id="timeline-progress" data-width="50%"></div>
           </div>
 
-          <!-- Step 1: Funded -->
-          <div class="milestone-step milestone-step--complete">
+          <!-- Step 1: Funded (Complete) -->
+          <div class="milestone-step milestone-step--complete" id="step-funded">
             <div class="milestone-step__node">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-lock"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
             </div>
             <span class="milestone-step__label">Funded</span>
+            <span class="milestone-step__data mono">10,000 ARB</span>
           </div>
 
-          <!-- Step 2: In Progress -->
-          <div class="milestone-step milestone-step--complete">
-            <div class="milestone-step__node">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            </div>
-            <span class="milestone-step__label">In Progress</span>
-          </div>
-
-          <!-- Step 3: AI Review (Active) -->
-          <div class="milestone-step milestone-step--active">
-            <div class="milestone-step__node">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-violet)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+          <!-- Step 2: AI Review (Active) -->
+          <div class="milestone-step milestone-step--active" id="step-aireview">
+            <div class="milestone-step__node" id="step-aireview-node">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-violet)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cpu"><rect width="16" height="16" x="4" y="4" rx="2"/><rect width="6" height="6" x="9" y="9" rx="1"/><path d="M9 1v3"/><path d="M15 1v3"/><path d="M9 20v3"/><path d="M15 20v3"/><path d="M20 9h3"/><path d="M20 15h3"/><path d="M1 9h3"/><path d="M1 15h3"/></svg>
             </div>
             <span class="milestone-step__label">AI Review</span>
+            <span class="milestone-step__data mono" id="step-aireview-data">Score: 0.42</span>
           </div>
 
-          <!-- Step 4: Human Review -->
-          <div class="milestone-step milestone-step--pending">
-            <div class="milestone-step__node">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--text-tertiary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-            </div>
-            <span class="milestone-step__label">Human Review</span>
-          </div>
-
-          <!-- Step 5: Approved -->
-          <div class="milestone-step milestone-step--pending">
-            <div class="milestone-step__node">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--text-tertiary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-            </div>
-            <span class="milestone-step__label">Approved</span>
-          </div>
-
-          <!-- Step 6: Paid Out -->
-          <div class="milestone-step milestone-step--pending">
-            <div class="milestone-step__node">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--text-tertiary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+          <!-- Step 3: Paid Out (Pending) -->
+          <div class="milestone-step milestone-step--pending" id="step-paidout">
+            <div class="milestone-step__node" id="step-paidout-node">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--text-tertiary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
             </div>
             <span class="milestone-step__label">Paid Out</span>
+            <span class="milestone-step__data mono" id="step-paidout-data">Pending</span>
           </div>
         </div>
       </div>

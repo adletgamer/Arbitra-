@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initHashCopy();
   initAdminButtons();
   initMilestoneSimulator();
+  initRoleTabs();
 });
 
 /* ============================================
@@ -384,7 +385,14 @@ function initMilestoneSimulator() {
   const mc2VerdictBadge = document.getElementById('mc2-verdict-badge');
 
   // Timeline node elements to animate
-  const steps = document.querySelectorAll('.milestone-step');
+  const stepAiReview = document.getElementById('step-aireview');
+  const stepAiReviewNode = document.getElementById('step-aireview-node');
+  const stepAiReviewData = document.getElementById('step-aireview-data');
+
+  const stepPaidOut = document.getElementById('step-paidout');
+  const stepPaidOutNode = document.getElementById('step-paidout-node');
+  const stepPaidOutData = document.getElementById('step-paidout-data');
+
   const timelineProgress = document.querySelector('.milestone-timeline__progress');
 
   let transitionCompleted = false;
@@ -414,42 +422,44 @@ function initMilestoneSimulator() {
     // 3. Simulate L2 Soft Finality (1.5 seconds)
     setTimeout(() => {
       // 4. Update timeline visuals
-      // Step 3 (AI Review) becomes complete
-      if (steps[2]) {
-        steps[2].classList.remove('milestone-step--active');
-        steps[2].classList.add('milestone-step--complete');
-        // Update SVG inside Node to checkmark
-        const stepNode3 = steps[2].querySelector('.milestone-step__node');
-        if (stepNode3) {
-          stepNode3.innerHTML = `
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-          `;
-        }
+      // Step 2 (AI Review) becomes complete
+      if (stepAiReview) {
+        stepAiReview.classList.remove('milestone-step--active');
+        stepAiReview.classList.add('milestone-step--complete');
+      }
+      if (stepAiReviewNode) {
+        stepAiReviewNode.innerHTML = `
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        `;
+      }
+      if (stepAiReviewData) {
+        stepAiReviewData.textContent = 'Score: 0.94';
       }
 
-      // Step 4 (Human Review) becomes active
-      if (steps[3]) {
-        steps[3].classList.remove('milestone-step--pending');
-        steps[3].classList.add('milestone-step--active');
-        const stepNode4 = steps[3].querySelector('.milestone-step__node');
-        if (stepNode4) {
-          stepNode4.style.borderColor = 'var(--accent-violet)';
-          stepNode4.innerHTML = `
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-violet)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
-          `;
-        }
+      // Step 3 (Paid Out) becomes complete
+      if (stepPaidOut) {
+        stepPaidOut.classList.remove('milestone-step--pending');
+        stepPaidOut.classList.add('milestone-step--complete');
+      }
+      if (stepPaidOutNode) {
+        stepPaidOutNode.innerHTML = `
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        `;
+      }
+      if (stepPaidOutData) {
+        stepPaidOutData.textContent = 'Tx: 0x8a9b';
       }
 
-      // Advance timeline progress line to 78% (next milestone node)
+      // Advance timeline progress line to 100%
       if (timelineProgress) {
-        timelineProgress.style.width = '78%';
+        timelineProgress.style.width = '100%';
       }
 
       // 5. Update data fields to new verified state
-      if (mc1HitoVal) mc1HitoVal.textContent = '#3 — Completado (En Comité)';
+      if (mc1HitoVal) mc1HitoVal.textContent = '#3 — Completado (Liberado)';
       if (mc1StatusBadge) {
-        mc1StatusBadge.textContent = 'human_review';
-        mc1StatusBadge.className = 'badge badge--violet';
+        mc1StatusBadge.textContent = 'paid_out';
+        mc1StatusBadge.className = 'badge badge--success';
       }
 
       if (mc2ScoreVal) {
@@ -494,31 +504,34 @@ function initMilestoneSimulator() {
 
     setTimeout(() => {
       // Revert nodes
-      if (steps[2]) {
-        steps[2].classList.add('milestone-step--active');
-        steps[2].classList.remove('milestone-step--complete');
-        const stepNode3 = steps[2].querySelector('.milestone-step__node');
-        if (stepNode3) {
-          stepNode3.innerHTML = `
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-violet)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
-          `;
-        }
+      if (stepAiReview) {
+        stepAiReview.classList.add('milestone-step--active');
+        stepAiReview.classList.remove('milestone-step--complete');
+      }
+      if (stepAiReviewNode) {
+        stepAiReviewNode.innerHTML = `
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-violet)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cpu"><rect width="16" height="16" x="4" y="4" rx="2"/><rect width="6" height="6" x="9" y="9" rx="1"/><path d="M9 1v3"/><path d="M15 1v3"/><path d="M9 20v3"/><path d="M15 20v3"/><path d="M20 9h3"/><path d="M20 15h3"/><path d="M1 9h3"/><path d="M1 15h3"/></svg>
+        `;
+      }
+      if (stepAiReviewData) {
+        stepAiReviewData.textContent = 'Score: 0.42';
       }
 
-      if (steps[3]) {
-        steps[3].classList.add('milestone-step--pending');
-        steps[3].classList.remove('milestone-step--active');
-        const stepNode4 = steps[3].querySelector('.milestone-step__node');
-        if (stepNode4) {
-          stepNode4.style.borderColor = 'var(--text-tertiary)';
-          stepNode4.innerHTML = `
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--text-tertiary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-          `;
-        }
+      if (stepPaidOut) {
+        stepPaidOut.classList.add('milestone-step--pending');
+        stepPaidOut.classList.remove('milestone-step--complete');
+      }
+      if (stepPaidOutNode) {
+        stepPaidOutNode.innerHTML = `
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--text-tertiary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        `;
+      }
+      if (stepPaidOutData) {
+        stepPaidOutData.textContent = 'Pending';
       }
 
       if (timelineProgress) {
-        timelineProgress.style.width = '58%';
+        timelineProgress.style.width = '50%';
       }
 
       // Revert texts
@@ -556,6 +569,36 @@ function initMilestoneSimulator() {
       transitionCompleted = false;
     }, 1000);
   }
+}
+
+/* ============================================
+   ROLE TABS INTERACTIVITY
+   ============================================ */
+function initRoleTabs() {
+  const tabs = document.querySelectorAll('.tab-btn');
+  const contents = document.querySelectorAll('.tab-content');
+
+  if (!tabs.length || !contents.length) return;
+
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      const targetTab = tab.getAttribute('data-tab');
+
+      // Toggle active states on buttons
+      tabs.forEach((t) => t.classList.remove('active'));
+      tab.classList.add('active');
+
+      // Toggle active states on contents
+      contents.forEach((content) => {
+        const contentId = content.getAttribute('id');
+        if (contentId === `tab-content-${targetTab}`) {
+          content.classList.add('active');
+        } else {
+          content.classList.remove('active');
+        }
+      });
+    });
+  });
 }
 
 /* ============================================
