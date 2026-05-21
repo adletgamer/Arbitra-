@@ -9,6 +9,8 @@ interface HomeProps {
 }
 
 export default function Home({ onNavigate, isConnected, walletAddress: _walletAddress, onConnectWallet }: HomeProps) {
+  const [logoError, setLogoError] = useState(false);
+
   // Tabs State
   const [activeTab, setActiveTab] = useState<'admin' | 'startup' | 'mentor'>('admin');
 
@@ -82,21 +84,30 @@ export default function Home({ onNavigate, isConnected, walletAddress: _walletAd
     <div className="landing-layout">
       {/* ========== NAVBAR ========== */}
       <nav className="navbar scrolled">
-        <div className="container navbar__container">
-          <div className="navbar__logo" style={{ cursor: 'pointer' }} onClick={() => onNavigate('home')}>
-            <img src="/arbitra_logo.png" alt="Arbitra Logo" className="navbar__logo-img" style={{ height: '32px', width: 'auto', marginRight: '10px' }} onError={(e) => {
-              // Fallback to high-end SVG logo if image doesn't load
-              (e.target as HTMLElement).style.display = 'none';
-            }} />
-            <span className="navbar__logo-fallback-icon">⚖</span>
+        <div className="container navbar__inner">
+          <div className="navbar__logo" style={{ cursor: 'pointer', display: 'flex', alignItems: 'center' }} onClick={() => onNavigate('home')}>
+            {!logoError ? (
+              <img 
+                src="/arbitra_logo.png" 
+                alt="Arbitra Logo" 
+                className="navbar__logo-img" 
+                style={{ height: '32px', width: 'auto', marginRight: '10px', display: 'block' }} 
+                onError={() => setLogoError(true)} 
+              />
+            ) : (
+              <span className="navbar__logo-fallback-icon" style={{ marginRight: '6px' }}>⚖</span>
+            )}
             <span className="font-display" style={{ fontWeight: 800 }}>Arbitra</span>
           </div>
 
           <div className="navbar__links">
-            <a href="#bento" className="navbar__link">Bento Grid</a>
+            <a href="#bento" className="navbar__link">Solución</a>
             <a href="#milestones" className="navbar__link">Motor de Hitos</a>
             <a href="#roles" className="navbar__link">Perfiles</a>
             <a href="#faq" className="navbar__link">FAQ</a>
+          </div>
+
+          <div className="navbar__actions" style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
             {isConnected ? (
               <button onClick={() => onNavigate('dashboard')} className="btn btn--secondary" style={{ padding: '8px 16px' }}>
                 Ir al Dashboard

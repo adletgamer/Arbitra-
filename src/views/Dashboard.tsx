@@ -24,6 +24,8 @@ export default function Dashboard({
   onResetDb,
   onLogout
 }: DashboardProps) {
+  const [logoError, setLogoError] = useState(false);
+
   // Demo walkthrough guide step: 1 | 2 | 3 | 4
   const [demoStep, setDemoStep] = useState<number>(1);
   
@@ -426,14 +428,16 @@ export default function Dashboard({
       <div style={{ background: 'var(--bg-base-alt)', borderBottom: '1px solid var(--border-subtle)', padding: '24px 0' }}>
         <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-            <img 
-              src="/arbitra_logo.png" 
-              alt="Arbitra Logo" 
-              style={{ height: '40px', width: 'auto', display: 'block' }} 
-              onError={(e) => {
-                (e.currentTarget as HTMLImageElement).style.display = 'none';
-              }}
-            />
+            {!logoError ? (
+              <img 
+                src="/arbitra_logo.png" 
+                alt="Arbitra Logo" 
+                style={{ height: '40px', width: 'auto', display: 'block' }} 
+                onError={() => setLogoError(true)} 
+              />
+            ) : (
+              <span className="navbar__logo-fallback-icon" style={{ fontSize: 'var(--text-2xl)', marginRight: '6px' }}>⚖</span>
+            )}
             <div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <span className="section__label-dot" style={{ background: activeStartup.isPaused ? 'var(--state-error)' : 'var(--state-success)' }}></span>

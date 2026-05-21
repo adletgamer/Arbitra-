@@ -10,6 +10,8 @@ interface AuthProps {
 }
 
 export default function Auth({ onNavigate, onOnboardingComplete, onConnectWallet }: AuthProps) {
+  const [logoError, setLogoError] = useState(false);
+
   // Screen Mode: 'login' | 'signup' | 'onboarding'
   const [mode, setMode] = useState<'login' | 'signup' | 'onboarding'>('login');
 
@@ -126,8 +128,17 @@ export default function Auth({ onNavigate, onOnboardingComplete, onConnectWallet
 
       <div className="container" style={{ maxWidth: '500px', width: '100%', padding: 'var(--space-md)', zIndex: 2 }}>
         <div style={{ textAlign: 'center', marginBottom: 'var(--space-xl)' }}>
-          <div className="navbar__logo" style={{ display: 'inline-flex', marginBottom: '10px', fontSize: 'var(--text-2xl)' }}>
-            <span className="navbar__logo-fallback-icon" style={{ marginRight: '6px' }}>⚖</span>
+          <div className="navbar__logo" style={{ display: 'inline-flex', alignItems: 'center', marginBottom: '10px', fontSize: 'var(--text-2xl)' }}>
+            {!logoError ? (
+              <img 
+                src="/arbitra_logo.png" 
+                alt="Arbitra Logo" 
+                style={{ height: '36px', width: 'auto', marginRight: '8px', display: 'block' }} 
+                onError={() => setLogoError(true)} 
+              />
+            ) : (
+              <span className="navbar__logo-fallback-icon" style={{ marginRight: '6px' }}>⚖</span>
+            )}
             <span className="font-display" style={{ fontWeight: 800 }}>Arbitra</span>
           </div>
           <p style={{ color: 'var(--text-secondary)', fontSize: 'var(--text-sm)' }}>
