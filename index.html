@@ -10,11 +10,6 @@
 </head>
 <body>
 
-  <!-- Background Effects -->
-  <div class="bg-grid"></div>
-  <div class="bg-gradient-orb bg-gradient-orb--cyan"></div>
-  <div class="bg-gradient-orb bg-gradient-orb--violet"></div>
-
   <!-- ========== NAVBAR ========== -->
   <nav class="navbar" id="navbar">
     <div class="container navbar__inner">
@@ -52,6 +47,11 @@
 
   <!-- ========== HERO SECTION ========== -->
   <section class="hero" id="hero">
+    <!-- Background Effects -->
+    <div class="bg-grid"></div>
+    <div class="bg-gradient-orb bg-gradient-orb--cyan"></div>
+    <div class="bg-gradient-orb bg-gradient-orb--violet"></div>
+
     <div class="container hero__content">
 
       <div class="hero__badge">
@@ -110,6 +110,93 @@
         </div>
       </div>
 
+    </div>
+  </section>
+
+  <!-- ========== PROBLEM VS SOLUTION BENTO SECTION ========== -->
+  <section class="section problem-solution" id="problem-solution">
+    <div class="container">
+      <div class="reveal" style="margin-bottom: var(--space-2xl); text-align: center;">
+        <span class="section__label">
+          <span class="section__label-dot"></span>
+          Comparativa de Impacto
+        </span>
+        <h2 class="section__title">Burocracia Tradicional vs. Arbitra</h2>
+        <p class="section__subtitle" style="margin: 0 auto;">Por qué las incubadoras líderes están migrando de procesos manuales a capital programable.</p>
+      </div>
+
+      <div class="bento-grid reveal">
+        <!-- Card 1: Burocracia PDF (Problem) -->
+        <div class="bento-card bento-card--problem">
+          <div class="bento-card__badge badge--error">Proceso Tradicional</div>
+          <h3 class="bento-card__title">Opacidad & Burocracia en PDF</h3>
+          <p class="bento-card__desc">Los fondos se gestionan mediante contratos en PDF, firmas manuales lentas y desembolsos basados en confianza subjetiva.</p>
+          <div class="bento-card__visual">
+            <div class="pdf-mockup">
+              <span class="pdf-mockup__icon">📄</span>
+              <div class="pdf-mockup__meta">
+                <span class="pdf-mockup__title">Grant_Startup.pdf</span>
+                <span class="pdf-mockup__status text-error">Firma pendiente</span>
+              </div>
+              <div class="pdf-mockup__delay">Retraso Promedio: 45 días</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Escrow Programable (Solution) -->
+        <div class="bento-card bento-card--solution bento-card--highlight">
+          <div class="bento-card__badge badge--cyan">Infraestructura Arbitra</div>
+          <h3 class="bento-card__title">Milestone Escrow on-chain</h3>
+          <p class="bento-card__desc">Fondos custodiados en Smart Contracts autoejecutables en Arbitrum. Liberación inmediata tras validación de hitos.</p>
+          <div class="bento-card__visual">
+            <div class="escrow-mockup">
+              <span class="escrow-mockup__lock">🔓</span>
+              <div class="escrow-mockup__tx">
+                <span class="escrow-mockup__tx-label">Arbitrum Block Confirmed</span>
+                <span class="escrow-mockup__hash mono">0x3f5c...9a2e</span>
+              </div>
+              <div class="escrow-mockup__finality text-cyan">Soft Finality: ~1s</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Auditoría Subjetiva (Problem) -->
+        <div class="bento-card bento-card--problem">
+          <div class="bento-card__badge badge--error">Evaluación Manual</div>
+          <h3 class="bento-card__title">Auditorías Manuales y Lentitud</h3>
+          <p class="bento-card__desc">Comités trimestrales propensos a retrasos, sin visibilidad técnica del avance y dependientes de justificaciones subjetivas.</p>
+          <div class="bento-card__visual">
+            <div class="manual-mockup">
+              <div class="manual-mockup__icon-group">
+                <span>📁</span>
+                <span class="manual-mockup__arrow">→</span>
+                <span>⏳</span>
+                <span class="manual-mockup__arrow">→</span>
+                <span>❌</span>
+              </div>
+              <div class="manual-mockup__caption">Auditoría Trimestral Offline</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4: Gobernanza Automatizada (Solution) -->
+        <div class="bento-card bento-card--solution bento-card--highlight">
+          <div class="bento-card__badge badge--violet">Gobernanza Automatizada</div>
+          <h3 class="bento-card__title">IA Explicable + Firmas Multisig</h3>
+          <p class="bento-card__desc">Agentes de IA auditan los entregables en Github de forma auditable, requiriendo firma multisig del comité para liberar el escrow.</p>
+          <div class="bento-card__visual">
+            <div class="ai-mockup">
+              <div class="ai-mockup__badge text-violet">
+                <span class="ai-mockup__brain">🤖</span> Agent Verdict: VALID
+              </div>
+              <div class="ai-mockup__multisig">
+                <span class="ai-mockup__signature text-success">✓ Mentor Signed</span>
+                <span class="ai-mockup__signature text-success">✓ Admin Signed</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -400,7 +487,7 @@
 
       <!-- Milestone Detail Cards -->
       <div class="milestone-detail reveal">
-        <div class="card milestone-detail-card">
+        <div class="card milestone-detail-card skeleton" id="milestone-card-1">
           <div class="milestone-detail-card__title">
             <span style="color: var(--accent-cyan);">◆</span> Detalle del Hito Activo
           </div>
@@ -410,7 +497,7 @@
           </div>
           <div class="milestone-detail-card__row">
             <span class="milestone-detail-card__key">Hito</span>
-            <span class="milestone-detail-card__val">#3 — Prototipo Funcional</span>
+            <span class="milestone-detail-card__val" id="mc1-hito-val">#3 — Prototipo Funcional</span>
           </div>
           <div class="milestone-detail-card__row">
             <span class="milestone-detail-card__key">Monto Escrow</span>
@@ -422,35 +509,59 @@
           </div>
           <div class="milestone-detail-card__row">
             <span class="milestone-detail-card__key">Estado</span>
-            <span class="badge badge--violet">ai_review</span>
+            <span class="badge badge--violet" id="mc1-status-badge">ai_review</span>
+          </div>
+
+          <!-- Skeleton Loader Placeholder -->
+          <div class="skeleton-placeholder">
+            <div class="skeleton-bar skeleton-bar--title"></div>
+            <div class="skeleton-bar"></div>
+            <div class="skeleton-bar" style="width: 80%;"></div>
+            <div class="skeleton-bar skeleton-bar--short"></div>
           </div>
         </div>
 
-        <div class="card milestone-detail-card">
+        <div class="card milestone-detail-card skeleton" id="milestone-card-2">
           <div class="milestone-detail-card__title">
             <span style="color: var(--accent-violet);">◆</span> Validación IA — Resultado Parcial
           </div>
           <div class="milestone-detail-card__row">
             <span class="milestone-detail-card__key">Score General</span>
-            <span class="milestone-detail-card__val text-warning mono">0.42 / 1.00</span>
+            <span class="milestone-detail-card__val text-warning mono" id="mc2-score-val">0.42 / 1.00</span>
           </div>
           <div class="milestone-detail-card__row">
             <span class="milestone-detail-card__key">Commits verificados</span>
-            <span class="milestone-detail-card__val mono">14 / 20</span>
+            <span class="milestone-detail-card__val mono" id="mc2-commits-val">14 / 20</span>
           </div>
           <div class="milestone-detail-card__row">
             <span class="milestone-detail-card__key">Cobertura de Tests</span>
-            <span class="milestone-detail-card__val mono">38%</span>
+            <span class="milestone-detail-card__val mono" id="mc2-coverage-val">38%</span>
           </div>
           <div class="milestone-detail-card__row">
             <span class="milestone-detail-card__key">Firma Mentor</span>
-            <span class="badge badge--warning">Pendiente</span>
+            <span class="badge badge--warning" id="mc2-mentor-badge">Pendiente</span>
           </div>
           <div class="milestone-detail-card__row">
             <span class="milestone-detail-card__key">Veredicto IA</span>
-            <span class="badge badge--error">Requiere revisión</span>
+            <span class="badge badge--error" id="mc2-verdict-badge">Requiere revisión</span>
+          </div>
+
+          <!-- Skeleton Loader Placeholder -->
+          <div class="skeleton-placeholder">
+            <div class="skeleton-bar skeleton-bar--title"></div>
+            <div class="skeleton-bar"></div>
+            <div class="skeleton-bar" style="width: 75%;"></div>
+            <div class="skeleton-bar skeleton-bar--short"></div>
           </div>
         </div>
+      </div>
+
+      <!-- Simulation Button -->
+      <div class="reveal" style="text-align: center; margin-top: var(--space-xl);">
+        <button class="btn btn--primary" id="btn-simulate-milestone" style="margin: 0 auto; gap: var(--space-sm);">
+          <span class="btn__icon">⚡</span>
+          Simular Transición de Hito (Arbitrum L2)
+        </button>
       </div>
 
     </div>
